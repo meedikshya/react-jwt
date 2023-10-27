@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Dashboard } from './Components/Dashboard';
+import { Login } from './Components/Login';
 
 function App() {
-  const [id, setId] = useState();
-  const [password, setPassword] = useState();
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
   const [message, setMessage] = useState();
-  const [responseMessage, setResponseMessage] = useState();
+
 
   const handleIdChange = (e) => {
     setId(e.target.value);
@@ -17,13 +20,10 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // console.log('Form submitted');
 
-  localStorage.setItem("items" , JSON.stringify(responseMessage))
-  console.log(JSON.stringify(responseMessage))
- 
-
-    const clientId = '123456789';
-    const clientSecret = '987654321';
+    const clientId = `${id}`;
+    const clientSecret = `${password}`;
 
     const base64Credentials = btoa(`${clientId}:${clientSecret}`);
 
@@ -38,65 +38,67 @@ function App() {
     };
 
     axios.post('https://dipeshchapagain.com.np/oauth/api/access-token', data, { headers })
-    .then((response) => {
-      console.log('Response:', response);
+      .then((response) => {
+        console.log('Response:', response);
 
-      if (response.data.access_token) {
-        setMessage('Login successful!'); 
-        setResponseMessage(response.data);
-      } else {
-        setMessage('Authentication error: No access token received.');
-      }
-    })
-    .catch((error) => {
-      console.log('Error:', error);
-      setMessage('An error occurred. Please try again later.');
-      console.error(error);
-    });
+        if (response.data.access_token) {
+          // setMessage('Login successful!');
+          console.log('Login successful!');
+          // setResponseMessage(response.data);
+
+          // extracting just access token and expiry
+          const accessToken = response.data.access_token;
+          const expires_in = response.data.expires_in;
+          console.log('Access Token:', accessToken, 'Expires in:', expires_in);
+
+          // Get the existing data from local storage
+          const storedData = JSON.parse(localStorage.getItem('items')) || [];
+
+          // Creating a new object with the new data
+          const testObject = { token: accessToken, expires_in: expires_in };
+
+          // Adding the new object to the existing data
+          storedData.push(testObject);
+
+          // Store the updated data back in local storage
+          localStorage.setItem('items', JSON.stringify(storedData));
+          console.log(JSON.parse(localStorage.getItem('items')));
+
+          window.location = '/Dashboard';
+        } else {
+          setMessage('Authentication error: No access token received.');
+          // console.log('Authentication error: No access token received.');
+        }
+      })
+      .catch((error) => {
+        // console.log('Error:', error);
+        setMessage('An error occurred. Please try again later.');
+        // console.error(error);
+        // console.log('An error occurred. Please try again later.');
+      });
   };
-
-
   return (
-    <div className='App'>
-      <form autoComplete='off' style={{ "margin": "150px", "padding": "100px" }} onSubmit={handleSubmit}>
-        <div className="form-group row">
-          <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">ID</label>
-          <div className="col-sm-10">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="ID"
-              value={id}
-              onChange={handleIdChange}
-            />
-          </div>
-          <br/> <br /> <br />
-        </div>
-        <div className="form-group row">
-          <label htmlFor="inputPassword3" className="col-sm-2 col-form-label" autoCorrect='new-password'>Password</label>
-          <div className="col-sm-10">
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              value={password}
-              onChange={handlePasswordChange}
-            />
-          </div>
-          <br/> <br /> <br />
-        </div>
-        <div className="form-group row">
-          <div className="col-sm-10">
-            <button type="submit" className="btn btn-primary">Sign in</button>
-          </div>
-        </div>
-      </form>
-      <div className="message" style={{"marginLeft":"250px"}}>
-      <h1>{message}</h1>
-      <p>{JSON.stringify(responseMessage, null, 1)}</p>
-      </div>
+      <Router>
+    <div className="App">
+        <Routes>
+          <Route path="/Dashboard" element={<Dashboard welcomeMessage="Welcome" />} />
+          <Route
+            path="/"
+            element={
+              <Login
+                handleSubmit={handleSubmit}
+                id={id}
+                handleIdChange={handleIdChange}
+                password={password}
+                handlePasswordChange={handlePasswordChange}
+                message={message}
+              />
+            }
+          />
+        </Routes>
     </div>
+
+      </Router>
   );
 }
-
 export default App;
