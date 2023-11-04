@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Dashboard } from './Components/Dashboard';
 import { Login } from './Components/Login';
+import {Health} from './Components/Health';
+import {Help} from './Components/Help';
+import {Insights} from './Components/Insights';
+import {Profile} from './Components/Profile';
+import {Settings} from './Components/Settings';
+import {Sidebar} from './Components/Sidebar';
 
 function App() {
   const [id, setId] = useState('');
@@ -78,27 +85,76 @@ function App() {
       });
   };
   return (
-      <Router>
-    <div className="App">
-        <Routes>
-          <Route path="/Dashboard" element={<Dashboard welcomeMessage="Welcome" />} />
-          <Route
-            path="/"
-            element={
-              <Login
-                handleSubmit={handleSubmit}
-                id={id}
-                handleIdChange={handleIdChange}
-                password={password}
-                handlePasswordChange={handlePasswordChange}
-                message={message}
-              />
-            }
-          />
-        </Routes>
-    </div>
 
-      </Router>
-  );
+    <Router>
+    <div className="App">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Login
+              handleSubmit={handleSubmit}
+              id={id}
+              handleIdChange={handleIdChange}
+              password={password}
+              handlePasswordChange={handlePasswordChange}
+              message={message}
+            />
+          }
+        />
+
+        <Route
+          path="/Dashboard"
+          element={
+            <Sidebar>
+              <Dashboard />
+            </Sidebar>
+          }
+        />
+
+        <Route
+          path="/Health"
+          element={
+            <Sidebar>
+              <Health />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/Help"
+          element={
+            <Sidebar>
+              <Help />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/Insights"
+          element={
+            <Sidebar>
+              <Insights />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/Profile"
+          element={
+            <Sidebar>
+              <Profile />
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/Settings"
+          element={
+            <Sidebar>
+              <Settings />
+            </Sidebar>
+          }
+        />
+      </Routes>
+    </div>
+  </Router>
+);
 }
 export default App;
