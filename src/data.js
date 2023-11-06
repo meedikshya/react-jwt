@@ -1,0 +1,83 @@
+export const UserData = [
+    {
+        id:1,
+        month:"Jan",
+        steps:10000,
+        weightGain:3,
+        weightloss:0,
+    },
+    {
+        id:2,
+        month:"Feb",
+        steps:12000,
+        weightGain:0,
+        weightloss:2,
+    },
+    {
+        id:3,
+        month:"Mar",
+        steps:13000,
+        weightGain:0,
+        weightloss:1,
+    }, {
+        id:4,
+        month:"Apr",
+        steps:1000,
+        weightGain:2,
+        weightloss:0,
+    }, {
+        id:5,
+        month:"May",
+        steps:10700,
+        weightGain:1,
+        weightloss:0,
+    }, {
+        id:6,
+        month:"Jun",
+        steps:10080,
+        weightGain:0,
+        weightloss:1,
+    }, {
+        id:7,
+        month:"Jul",
+        steps:10000,
+        weightGain:2,
+        weightloss:0,
+    },
+    {
+        id:8,
+        month:"Aug",
+        steps:40000,
+        weightGain:0,
+        weightloss:3,
+    },
+    {
+        id:9,
+        month:"Sep",
+        steps:20000,
+        weightGain:0,
+        weightloss:3
+    },
+    {
+        id:10,
+        month:"Oct",
+        steps:40600,
+        weightGain:0,
+        weightloss:4,
+    },
+    {
+        id:11,
+        month:"Nov",
+        steps:10000,
+        weightGain:0,
+        weightloss:0
+    },
+    {
+        id:12,
+        month:"Dec",
+        steps:10000,
+        weightGain:0,
+        weightloss:0,
+    },
+
+]

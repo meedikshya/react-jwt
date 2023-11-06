@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Dashboard } from './Components/Dashboard';
-import { Login } from './Components/Login';
-import {Health} from './Components/Health';
-import {Help} from './Components/Help';
-import {Insights} from './Components/Insights';
-import {Profile} from './Components/Profile';
-import {Settings} from './Components/Settings';
+import { Dashboard } from './pages/Dashboard';
+import { Login } from './pages/Login';
+import {Health} from './pages/Health';
+import {Help} from './pages/Help';
+import {Insights} from './pages/Insights';
+import {Profile} from './pages/Profile';
+import {Settings} from './pages/Settings';
 import {Sidebar} from './Components/Sidebar';
 
 function App() {

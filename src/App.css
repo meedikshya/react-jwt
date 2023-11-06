@@ -1,14 +1,10 @@
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 .main-sidebar{
@@ -67,11 +63,148 @@
   white-space: nowrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+/* styling dashboar*/
+
+
+.dashboardSection{
+  padding: 8px 20px;
+}
+
+.pText{
+  color:#6d5fb3;
+}
+
+.dText{
+  font-size: 20px;
+  font-weight: 600;
+  color:#6d5fb3;
+}
+
+.dashboardContainer{
+  display: flex;
+  height: 53vh;
+  width: 150vh;
+  padding: 10px 10px;
+}
+
+.containerLeft{
+  display: flex;
+  width: 50%;
+  margin: 10px;
+  background-color: #6d5fb3;
+  border-radius: 40px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+
+}
+
+.containerRight{
+  display: block;
+  width: 50%;
+  margin: 10px;
+}
+
+.upperOverlappingDiv{
+  position: absolute;
+  border: 2px;
+  height: 70px;
+  width: 80px;
+  margin-top: 30px;
+  margin-left: 20px;
+  border-radius: 10px;
+  background-color: #8D82C8;
+}
+
+.lowerOverlappingDiv{
+  position: absolute;
+  border: 2px;
+  height: 70px;
+  width: 80px;
+  margin-top: -190px;
+  margin-left: 20px;
+  border-radius: 10px;
+  background-color: #FEAEC7;
+}
+
+.lowerFirstOverlappingDiv{
+  position: absolute;
+  border: 2px;
+  height: 105px;
+  width: 35.66vh;
+  margin-top: -202px;
+  border-radius: 40px;
+  background-color: #FD90B2;
+}
+
+.rightFirst{
+  position: relative;
+  height: 18vh;
+  width: 50%;
+  margin-bottom: 20px;
+  background-color: #6d5fb3;
+  border-radius: 40px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.rightSecond{
+  position: relative;
+  height: 27vh;
+  width: 50%;
+  background-color: #f46995;
+  border-radius: 40px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.containerBottom{
+  display: flex;
+  width: 150vh;
+  padding: 10px 10px;
+  position: relative;
+}
+
+.containerI, .containerII, .containerIII{
+  display: flex;
+  border: 2px;
+  margin: 10px;
+  margin-top: 50px;
+  padding: 10px;
+  width:23.5%;
+  border-radius: 40px;
+  height: 25vh;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.overlappingDiv{
+  position: absolute;
+  z-index: 1;
+  border: 2px;
+  border-radius: 20px;
+  margin-top: -30px;
+  margin-left: 85px;
+  height: 70px;
+  width: 70px;
+  background-color: #6d5fb3;
+}
+
+/* charts */
+.barchart{
+  width: 70vh;
+}
+
+.lineChart{
+  width: 70vh;
+}
+
+
+
+@media (max-width: 768px) {
+  .main-sidebar {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar {
+    width: 100%;
   }
 }

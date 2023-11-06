@@ -51,13 +51,14 @@ export const Sidebar = ({children}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  
 
   const animation = {
     hidden:{
         width:0,
         opacity:0,
         transition:{
-            duration: 0.5,
+            duration: 0.1,
         },
     },
     show:{
@@ -78,10 +79,10 @@ export const Sidebar = ({children}) => {
     {isOpen && (
         <motion.h1
          className='logoSection'
-         variants={animation}
+        //  variants={animation}
          initial="hidden"
          animate="show"
-         exit="hidden"
+         exit="hidden" 
          >
          LOGO
          </motion.h1> 
@@ -102,7 +103,7 @@ export const Sidebar = ({children}) => {
             <AnimatePresence>
             {isOpen &&  (
                 <motion.div
-                variants={animation}
+                // variants={animation}
                 initial="hidden"
                 animate="show"
                 exit="hidden"
@@ -122,7 +123,7 @@ export const Sidebar = ({children}) => {
               <AnimatePresence>
               {isOpen && (
                 <motion.div
-                 variants={animation}
+                //  variants={animation}
                 initial="hidden"
                 animate="show"
                 exit="hidden" 
