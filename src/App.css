@@ -95,8 +95,6 @@
   background-color: #6d5fb3;
   border-radius: 40px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-
 }
 
 .containerRight{
@@ -131,7 +129,7 @@
   position: absolute;
   border: 2px;
   height: 105px;
-  width: 35.66vh;
+  width: 34.2vh;
   margin-top: -202px;
   border-radius: 40px;
   background-color: #FD90B2;
@@ -195,8 +193,28 @@
 
 .lineChart{
   width: 70vh;
+  position: relative;
+  margin-left: -73vh;
 }
 
+
+.dropdown{
+  position: relative;
+  display: block;
+}
+
+.dropdownButton {
+  background-color:#6d5fb3 ;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid white;
+  cursor: pointer;
+  width: 70px;
+  margin-top:20px;
+  margin-left: 440px;
+  border-radius: 20px;
+}
 
 
 @media (max-width: 768px) {

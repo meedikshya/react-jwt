@@ -47,21 +47,21 @@ export const UserData = [
     {
         id:8,
         month:"Aug",
-        steps:40000,
+        steps:10600,
         weightGain:0,
         weightloss:3,
     },
     {
         id:9,
         month:"Sep",
-        steps:20000,
+        steps:1000,
         weightGain:0,
         weightloss:3
     },
     {
         id:10,
         month:"Oct",
-        steps:40600,
+        steps:20010,
         weightGain:0,
         weightloss:4,
     },
