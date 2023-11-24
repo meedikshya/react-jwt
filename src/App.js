@@ -10,11 +10,20 @@ import {Insights} from './pages/Insights';
 import {Profile} from './pages/Profile';
 import {Settings} from './pages/Settings';
 import {Sidebar} from './Components/Sidebar';
+import { ToastContainer } from 'react-toastify';
+
+
 
 function App() {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState();
+
+  // const showToastMessage = () => {
+  //   toast.success("Welcome :) ", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //   });
+  // }
 
 
   const handleIdChange = (e) => {
@@ -72,6 +81,7 @@ function App() {
           console.log(JSON.parse(localStorage.getItem('items')));
 
           window.location = '/Dashboard';
+
         } else {
           setMessage('Authentication error: No access token received.');
           // console.log('Authentication error: No access token received.');
@@ -88,6 +98,7 @@ function App() {
 
     <Router>
     <div className="App">
+    <ToastContainer/>
       <Routes>
         <Route
           path="/"

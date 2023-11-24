@@ -1,14 +1,31 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {GiRunningShoe} from 'react-icons/gi';
 import {LiaRunningSolid} from 'react-icons/lia';
 import {IoIosBicycle} from 'react-icons/io';
 import {UserData} from '../data';
 import {Linechart} from '../Components/Linechart';
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 
 export const Dashboard = () => {
   // const [selectedMonth, setSelectedMonth] = useState('Jan');
+
+  useEffect(() => {
+    toast.success("Welcome :) ", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+    
+  }, []);
+
+ 
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.month)  ,
     datasets:[{
@@ -27,7 +44,7 @@ export const Dashboard = () => {
 
     // const months = UserData.map((data) => data.month);
 
-
+ 
 
   return (
     <div className='dashboardSection'>
@@ -37,30 +54,21 @@ export const Dashboard = () => {
     <div className='dashboardContainer'>
 
 
-      <div className='containerLeft'>
-    <span>
+<div className='containerLeft'>
 
     <div className="dropdown">
               <button className="dropdownButton">
                 Months
               </button>
-                {/* <div className="dropdownContent">
-                  {months.map((month) => (
-                    <button key={month} onClick={() => handleMonthSelect(month)}>
-                      {month}
-                    </button>
-                  ))}
-                </div> */}
-            </div>
-          </span>
+    </div>
 
-      <span style={{"position":"relative ", "top":"30px", "left":"-63vh", "color":"white"}}>Overview</span>
-    <span className='lineChart'>
-    <Linechart chartData={userData} />
-    </span>
-    <span style={{"position":"relative", "top":"290px", "left":"-470px",  "color":"white", "font-size":"15px"}}>
+      <span style={{"position":"relative ", "top":"30px", "left":"-74vh", "color":"white"}}>Overview</span>
+      <span className='lineChart'>
+      <Linechart chartData={userData} />
+      </span>
+      <span style={{"position":"relative", "top":"310px", "left":"-78vh",  "color":"white", "font-size":"15px"}}>
       Steps
-    <br/>
+      <br/>
     </span>
       {/* <span style={{"font-size":"25px","position":"absolute", "top":"375px", "left":"110px", "color":"white"}}>{totalSteps}</span> */}
   </div>
@@ -105,6 +113,17 @@ export const Dashboard = () => {
 
     </div>
 
+    {/* <div className='piechart'>
+    <Piechart chartData={userData} />
+
+    </div> */}
+
+
+    {/* <motion.div animate={{"width": isOpen ? "200px" : "52px"}}
+     className='rightSidebar'>
+     </motion.div> */}
+
     </div>
+   
   )
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Barchart } from '../Components/Barchart';
 import {UserData} from '../data';
 import {Linechart} from '../Components/Linechart';
+import {Piechart} from '../Components/Piechart';
 
 export const Insights = () => {
 
@@ -18,6 +19,9 @@ export const Insights = () => {
     <div className='barchart'>
     <Barchart chartData={userData} />
     <Linechart chartData={userData} />
+    <Piechart chartData={userData} />
+
+    
 
     </div>
   )

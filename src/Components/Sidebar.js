@@ -7,6 +7,8 @@ import {TbHelpOctagonFilled} from "react-icons/tb"
 import {BsHeartPulseFill} from "react-icons/bs"
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { RightSidebar } from './rightSidebar';
 
 
 const routes = [
@@ -49,31 +51,34 @@ const routes = [
 
 export const Sidebar = ({children}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const isDashboardPage = location.pathname === '/Dashboard';
   
 
-  const animation = {
-    hidden:{
-        width:0,
-        opacity:0,
-        transition:{
-            duration: 0.1,
-        },
-    },
-    show:{
-        width:"auto",
-        opacity:1,
-        transition:{
-            duration:0.2,
-        },
-    },
-  }
+//   const animation = {
+//     hidden:{
+//         width:0,
+//         opacity:0,
+//         transition:{
+//             duration: 0.1,
+//         },
+//     },
+//     show:{
+//         width:"auto",
+//         opacity:1,
+//         transition:{
+//             duration:0.2,
+//         },
+//     },
+//   }
 
   return (
+    <div>
     <div className='main-sidebar'>
-    <motion.div animate={{"width": isOpen ? "200px" : "52px"}}
-     className='sidebar'>
+    <motion.div animate={{"width": isOpen ? "200px" : "52px"}} className='sidebar'>
 
     <div className='topSection'>
     {isOpen && (
@@ -135,12 +140,43 @@ export const Sidebar = ({children}) => {
             </NavLink>
           ))}
         </section>
-
     </motion.div>
+    
     <main>
         {children}
     </main>
    
     </div>
+
+
+{isDashboardPage && (
+    <div className='right-sidebar'>
+    <motion.div animate={{"width": isOpen ? "280px" : "370px", "marginLeft": isOpen ? "161vh" : "148.99vh"}} style={{ "marginTop":"-100vh", "backgroundColor":"white"
+    }} 
+    className='rightSidebar'
+    >
+
+    {/* <div className='containerRightSidebar'>
+
+    <div className='containerRightSidebarI'>
+
+    </div>
+    <div className='containerRightSidebarII'>
+        
+    </div>
+    <div className='containerRightSidebarIII'>
+        
+    </div>
+    </div> */}
+
+    <RightSidebar/>
+
+
+    </motion.div>
+    </div>
+)}
+    </div>
+
+
   )
 }
