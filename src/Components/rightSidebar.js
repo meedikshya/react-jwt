@@ -32,7 +32,7 @@ export const RightSidebar = () => {
           </div>
         </div>
         <div className='containerSectionII'>
-        <span className='progress'>
+        {/* <span className='progress'>
         <ProgressBar completed={70} 
         maxCompleted={120}
         background-bgColor='#f46995'
@@ -41,7 +41,7 @@ export const RightSidebar = () => {
         margin='10px'
          />
 
-        </span>
+        </span> */}
         <div className='smallContainerIII'>
           
           </div>

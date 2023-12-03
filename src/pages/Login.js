@@ -39,7 +39,13 @@ export const Login = ({handleSubmit,id,handleIdChange,password,handlePasswordCha
         </div>
       </form>
       <div className="message" style={{"marginLeft":"250px"}}>
-      <h1>{message}</h1>
+      <span>
+      #####NOTE#####
+      
+      <br/>
+      username:123456789
+      password:987654321
+      </span>
       </div> 
 
     </div>
