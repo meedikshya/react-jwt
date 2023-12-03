@@ -96,7 +96,7 @@ function App() {
   };
   return (
 
-    <Router>
+    <Router basename='/react-jwt'>
     <div className="App">
     <ToastContainer/>
       <Routes>
