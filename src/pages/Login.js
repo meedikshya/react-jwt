@@ -7,6 +7,7 @@ export const Login = ({handleSubmit,id,handleIdChange,password,handlePasswordCha
  <form style={{ "margin": "150px", "padding": "100px" }} onSubmit={handleSubmit}>
         <div className="form-group row">
           <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">ID</label>
+          <meta http-equiv="Permissions-Policy" content="interest-cohort=(), user-id=()" />
           <div className="col-sm-10">
             <input autoComplete='off'
               type="text"
