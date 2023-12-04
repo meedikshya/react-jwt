@@ -101,7 +101,7 @@ function App() {
     <ToastContainer/>
       <Routes>
         <Route
-          path="/"
+          path="/react-jwt"
           element={
             <Login
               handleSubmit={handleSubmit}
