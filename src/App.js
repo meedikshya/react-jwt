@@ -4,14 +4,14 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard';
 import { Login } from './pages/Login';
-import {Health} from './pages/Health';
-import {Help} from './pages/Help';
-import {Insights} from './pages/Insights';
-import {Profile} from './pages/Profile';
-import {Settings} from './pages/Settings';
-import {Sidebar} from './Components/Sidebar';
+import { Health } from './pages/Health';
+import { Help } from './pages/Help';
+import { Insights } from './pages/Insights';
+import { Profile } from './pages/Profile';
+import { Settings } from './pages/Settings';
+import { Sidebar } from './Components/Sidebar';
 import { ToastContainer } from 'react-toastify';
-
+import { Navigate } from 'react-router-dom';
 
 
 function App() {
@@ -96,76 +96,79 @@ function App() {
   };
   return (
 
-    <Router basename='/react-jwt'>
-    <div className="App">
-    <ToastContainer/>
-      <Routes>
-        <Route
-          path="/react-jwt"
-          element={
-            <Login
-              handleSubmit={handleSubmit}
-              id={id}
-              handleIdChange={handleIdChange}
-              password={password}
-              handlePasswordChange={handlePasswordChange}
-              message={message}
-            />
-          }
-        />
+    <Router>
+      <div className="App">
+        <ToastContainer />
+        <Routes>
+          <Route
+            exact path="/react-jwt"
+            element={
+              <Login
+                handleSubmit={handleSubmit}
+                id={id}
+                handleIdChange={handleIdChange}
+                password={password}
+                handlePasswordChange={handlePasswordChange}
+                message={message}
+              />
+            }
+          />
 
-        <Route
-          path="/Dashboard"
-          element={
-            <Sidebar>
-              <Dashboard />
-            </Sidebar>
-          }
-        />
+          <Route
+            path="/Dashboard"
+            element={
+              <Sidebar>
+                <Dashboard />
+              </Sidebar>
+            }
+          />
 
-        <Route
-          path="/Health"
-          element={
-            <Sidebar>
-              <Health />
-            </Sidebar>
-          }
-        />
-        <Route
-          path="/Help"
-          element={
-            <Sidebar>
-              <Help />
-            </Sidebar>
-          }
-        />
-        <Route
-          path="/Insights"
-          element={
-            <Sidebar>
-              <Insights />
-            </Sidebar>
-          }
-        />
-        <Route
-          path="/Profile"
-          element={
-            <Sidebar>
-              <Profile />
-            </Sidebar>
-          }
-        />
-        <Route
-          path="/Settings"
-          element={
-            <Sidebar>
-              <Settings />
-            </Sidebar>
-          }
-        />
-      </Routes>
-    </div>
-  </Router>
-);
+          <Route
+            path="/Health"
+            element={
+              <Sidebar>
+                <Health />
+              </Sidebar>
+            }
+          />
+          <Route
+            path="/Help"
+            element={
+              <Sidebar>
+                <Help />
+              </Sidebar>
+            }
+          />
+          <Route
+            path="/Insights"
+            element={
+              <Sidebar>
+                <Insights />
+              </Sidebar>
+            }
+          />
+          <Route
+            path="/Profile"
+            element={
+              <Sidebar>
+                <Profile />
+              </Sidebar>
+            }
+          />
+          <Route
+            path="/Settings"
+            element={
+              <Sidebar>
+                <Settings />
+              </Sidebar>
+            }
+          />
+          
+          <Route path="*" element={<Navigate to="/" />} />
+
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 export default App;
